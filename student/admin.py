@@ -4,7 +4,7 @@ from student.models import *
 
 admin.site.register(Certificate)
 admin.site.register(IdCard)
-admin.site.register(AdmitCard)
+
 admin.site.register(ResultHideUnHide)
 admin.site.register(ResultStyleHideUnHide)
 admin.site.register(SiteDown)
@@ -22,7 +22,16 @@ admin.site.register(UserEnrollment)
 
 class Sem1Admin(admin.TabularInline):
     model = Semester
-        
+
+class admitexam(admin.TabularInline):
+    model = AdmitcardExmDetail
+
+class AdmitCardAdmin(admin.ModelAdmin):
+    inlines = [admitexam]
+    list_display = ['enrollment_no','name']
+
+admin.site.register(AdmitCard,AdmitCardAdmin)
+
 # class Sem2Admin(admin.TabularInline):
 #     model = Semester_2
 

@@ -137,6 +137,15 @@ position: relative;
   top: 57px;
   right: 40px;
 }
+.student-signature{
+  position: absolute;
+  top: 210px;
+  right: 42px;
+}
+.student-signature img{
+  width: 128px;
+  height: 40px;
+}
 .admit-avtar img{
   width: 130px;
   height: 140px;
@@ -181,6 +190,7 @@ position: relative;
 }
 .note {
   font-size: 14px;
+  width:715px
 }
 
 

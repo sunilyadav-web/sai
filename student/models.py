@@ -1,3 +1,4 @@
+from datetime import datetime 
 from django.db import models
 from django.contrib.auth.models import User
 
@@ -87,7 +88,7 @@ class Course_desc(models.Model):
     
 
 class AdmitCard(models.Model):
-    remark=(
+    REMARKS=(
         ('Male','Male'),
         ('Female','Female'),
         ('Transgender','Transgender'),
@@ -95,19 +96,16 @@ class AdmitCard(models.Model):
     )
     enrollment_no=models.CharField(max_length=40,unique=True)
     name=models.CharField(max_length=60)
-    image=models.ImageField(upload_to='admitcard',blank=True)
-    student_signature=models.ImageField(upload_to='student_Signature',blank=True)
-    father_name=models.CharField(max_length=60,blank=True)
+    image=models.ImageField(upload_to='admitcard')
+    student_signature=models.ImageField(upload_to='student_Signature')
+    father_name=models.CharField(max_length=60)
     exam_centre=models.CharField(max_length=200)
 
-    dob=models.DateField(blank=True)
-    gender=models.CharField(max_length=50, choices=remark,blank=True)
-    semester=models.CharField(max_length=70,blank=True)
-    session=models.IntegerField(blank=True)
-    reg_no=models.CharField(max_length=200)
-    subject_name=models.CharField(max_length=100,blank=True)
-    date=models.DateField(blank=True)
-    time=models.CharField(max_length=100,blank=True)
+    dob=models.DateField()
+    gender=models.CharField(max_length=50, choices=REMARKS)
+    semester=models.CharField(max_length=70)
+    session=models.IntegerField()
+    reg_no=models.CharField(max_length=200,blank=True)
     instruction=models.TextField(default="""Instructions to the Candidate
 
 1. This Admit Card must be presented for verification at the time of examination, along with at least one original (not photocopied or scanned copy) and valid (not expired) photo identification card (eg: College ID, Employer ID. Driving License, Passport, PAN card, Voter ID, Aadhaar-UID, etc).
@@ -128,11 +126,19 @@ class AdmitCard(models.Model):
 9. Mobile phones or any other Electronic gadgets are NOT ALLOWED inside the examination hall. There may not be any facility for safe keeping of your gadget outside the hall, sot me be easier to leave it at your residence')
 """)
     def __str__(self):
-        return f"{self.enrollment_no} - {self.date}"
+        return f"{self.enrollment_no}- {self.name}"
 
     class Meta:
         ordering=['-id']
+    
 
+class AdmitcardExmDetail(models.Model):
+    subject_name=models.CharField(max_length=100)
+    date=models.DateField()
+    time=models.CharField(max_length=100)
+    admitcard=models.ForeignKey(AdmitCard, on_delete=models.CASCADE)
+
+    
 class Certificate(models.Model):
     enrollment_no=models.CharField(max_length=40,unique=True)
     name=models.CharField(max_length=100)
@@ -144,8 +150,8 @@ class Certificate(models.Model):
     center_id=models.CharField(max_length=100)
     file=models.FileField(blank=True,null=True)
     
-    def __str__(self):
-        return f"{self.enrollment_no} - {self.date}"
+    # def __str__(self):
+    #     return f"{self.enrollment_no} - {self.date}"
 
     class Meta:
         ordering=['-id']

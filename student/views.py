@@ -357,10 +357,10 @@ def admitcard(request):
     if request.method == 'POST':
         enrollment_no = request.POST.get('enrollment_no')
         print(enrollment_no)
-
         try:
             admitcard = AdmitCard.objects.get(enrollment_no=enrollment_no)
-            return render(request,'student/admitcard.html',{'admitcard':admitcard,'x2':x2})
+            examdetail= AdmitcardExmDetail.objects.filter(admitcard=admitcard)
+            return render(request,'student/admitcard.html',{'admitcard':admitcard,'examdetail':examdetail,'x2':x2})
 
         except Exception as e:
             messages.warning(request, 'Please enter correct enrollment number!!')
@@ -375,6 +375,8 @@ def admitcard(request):
             return render(request, 'home/admitcard.html',context)
         try:
             admitcard = AdmitCard.objects.get(enrollment_no=user.enrollment_no)
+            examdetail= AdmitcardExmDetail.objects.filter(admitcard=admitcard)
+            context['examdetail']=examdetail
             context['admitcard']=admitcard
 
         except Exception as e:

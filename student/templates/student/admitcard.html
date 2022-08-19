@@ -3,7 +3,22 @@
 {% block title %} Admit Card {% endblock title %}
 {% block css %}
 <link rel="stylesheet" href="{% static 'student/css/style.css' %}">
+<style>
+  @page {
+    size: A4 portrait;
+    margin: 0px;
 
+  }
+
+  @media print {
+    body {
+      -webkit-print-color-adjust: exact;
+      -moz-print-color-adjust: exact;
+      -ms-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+  }
+</style>
 {% endblock css %}
 
 {% block content %}
@@ -48,8 +63,7 @@
     <div class="d-flex justify-content-center flex-column mb-4">
       <h3 class="text-center">Alumni Details</h3>
       <!-- <p class="text-end ">Please verify Marks Sheet / Certificate </p> -->
-      <a class="btn-primary btn m-auto" style="width:fit-content;"
-        href="{% url 'admit-pdf-view' admitcard.enrollment_no %}">DOWNLOAD IDCARD</a>
+      <a class="btn-primary btn m-auto" style="width:fit-content;" onclick="printCard()">DOWNLOAD IDCARD</a>
     </div>
 
 
@@ -57,7 +71,7 @@
       <span class="text-danger ">*For download Admit Card use Desktop Computer to get proper format*</span>
     </div>
   </div>
-  <div id="card" class="body">
+  <div id="card" class="body overflow-auto">
     <div class="m-auto admit-body">
       <div class="admit-card m-auto">
         <div class="hall-ticket">
@@ -66,23 +80,26 @@
         <div class="admit-avtar">
           <img src="{{admitcard.image.url}}" alt="" class="border border-dark border-2 rounded">
         </div>
+        <div class="student-signature">
+          <img src="{{admitcard.student_signature.url}}" alt="">
+        </div>
         <div class="student-info ">
           <div>
-            <h6>Enrollment No.:{{admitcard.enrollment_no}}</h6>
+            <h6>Enrollment No.: {{admitcard.enrollment_no}}</h6>
             <h6>Name: {{admitcard.name}}</h6>
           </div>
           <div>
-            <h6>Father Name's: </h6>
-            <h6>Exam Center: {{admitcard.exam_centre}}</h6>
+            <h6>Father Name's : {{admitcard.father_name}}</h6>
+            <h6>Exam Center : {{admitcard.exam_centre}}</h6>
           </div>
           <div class="d-flex ">
             <div class="w-50">
-              <h6>DOB: 12 July 2003</h6>
-              <h6>Semester: II</h6>
+              <h6>DOB : {{admitcard.dob}}</h6>
+              <h6>Semester : {{admitcard.semester}}</h6>
             </div>
             <div class="w-50">
-              <h6>Gender: Male</h6>
-              <h6>Session: 2007</h6>
+              <h6>Gender : {{admitcard.gender}}</h6>
+              <h6>Session : {{admitcard.session}}</h6>
             </div>
           </div>
         </div>
@@ -94,45 +111,27 @@
               <th>Time</th>
             
             </tr>
+            {% for item in examdetail %}   
+            
             <tr>
-              <td>Civil Engineering</td>
-              <td>19-06-2022</td>
-              <td>02:00 PM TO 05:00 PM</td>
-              
+              <td>{{item.subject_name}}</td>
+              <td>{{item.date | date}}</td>
+              <td>{{item.time}}</td>    
             </tr>
-            <tr>
-              <td>Civil Engineering</td>
-              <td>19-06-2022</td>
-              <td>02:00 PM TO 05:00 PM</td>
-              
-            </tr>
-            <tr>
-              <td>Civil Engineering</td>
-              <td>19-06-2022</td>
-              <td>02:00 PM TO 05:00 PM</td>
-              
-            </tr>
-            <tr>
-              <td>Electronics Engg</td>
-              <td>19-06-2022</td>
-              <td>02:00 PM TO 05:00 PM</td>
-              
-            </tr>
-            <tr>
-              <td>Engineering Dwg</td>
-              <td>19-06-2022</td>
-              <td>02:00 PM TO 05:00 PM</td>
-            </tr>
+            {% endfor %}
+            
           </table>
         </div>
       </div>
 
-      <!-- <h4 class="text-center my-2 mb-3">Instructions to the Candidate</h4> -->
-      <!-- <div class="note">
+     <h4 class="text-center my-2 mb-3">Instructions to the Candidate</h4>
+      <div class="note m-auto">
         {{admitcard.instruction | safe}}
-      </div> -->
+      </div> 
     </div>
   </div>
+
+
   <footer class="pt-4 mt-5 ">
 
     <p class="text-center text-muted"> If you have any query please mail us to <a
@@ -141,53 +140,16 @@
 
   {% endif %}
 </div>
+<script>
+  function printCard() {
+      var backup = document.body.innerHTML
+      var AdmitcardHtml = document.getElementById('card').innerHTML
+
+      document.body.innerHTML = AdmitcardHtml
+      window.print()
+      document.body.innerHTML = backup
+      
+  }
+</script>
 {% endblock content %}
 
-
-
-
-
-<!-- <div class="card-logo d-flex justify-content-center py-2 mb-1">
-          <img style="height:9vh;" class="img-responsive d-block text-center"
-            src="{% static 'student/image/logo2.png' %}" alt="St. John's University Logo">
-        </div>
-        <div class="admit-card-user">
-          <img src="{{admitcard.image.url}}" alt="" height="200" class="me-4">
-          <div class="ms-3 ">
-            <p> <b> Enrollment No:</b> {{admitcard.enrollment_no}}</p>
-            <p> <b> Title : </b> {{admitcard.title}}</p>
-            <p> <b> Date : </b> {{admitcard.date}}</p>
-            <p> <b> Time :</b> {{admitcard.time}}</p>
-            <p> <b> Registration No :</b> {{admitcard.reg_no}}</p>
-            <p> <b> Name :</b> {{admitcard.name}}</p>
-            <p class="address"> <b> Exam Center :</b> {{admitcard.exam_centre}}</p>
-          </div>
-        </div> -->
-
-
-
-<!-- <div id='mylogo'>
-  <img class='img-fluid mx-auto pt-2 d-block' src="{% static 'student/image/logo2.png' %}" alt="CoolBrand">
-</div>
-<div class="row justify-content-md-auto" id='divone'>
-  <div class="col-2">
-    <div class="text-center">
-      <div class="card-group" width="100%">
-        <div class="card">
-
-          <img class="card-img-top" id='profile_pic' src="{{admitcard.image.url}}" alt="Alumni Image 211*180">
-
-        </div>
-      </div>
-    </div>
-  </div>
-  <div id='divtwo' class="col-8">
-    <b> Enrollment No :</b> {{admitcard.enrollment_no}} <br>
-    <b> title :</b> {{admitcard.title}} <br>
-    <b> date :</b> {{admitcard.date}} <br>
-    <b> time :</b> {{admitcard.time}} <br>
-    <b> reg_no :</b> {{admitcard.reg_no}} <br>
-    <b> name :</b> {{admitcard.name}} <br>
-    <b> exam_centre :</b> {{admitcard.exam_centre}} <br>
-  </div>
-</div> -->
