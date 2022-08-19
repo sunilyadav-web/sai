@@ -1,0 +1,36 @@
+<nav class="nav">
+  <ul class="nav__list">
+    <li class="nav__list__item">
+      Menu
+    </li>
+    <li class="nav__list__item"><a href="/">HOME</a></li>
+
+    <li class="nav__list__item dropdown">
+      <ul class="dropdown">
+        <span>Mouse over me</span>
+        <span class="dropdown-content">
+          <p>Hello World!</p>
+      </span>
+      </ul>
+      <!-- <a class="dropdown-toggle" href="/about" id="navbarDarkDropdownMenuLink dropdownActivate" role="button">
+              ABOUT US
+            </a>
+            <ul class="dropdown-menu" style="background-color: #1c91c3; display: none;" aria-labelledby="navbarDarkDropdownMenuLink">
+              <li><a class="dropdown-item" href="/faith">FAITH AND SERIVCES</a></li>
+              <li><a class="dropdown-item" href="/md_message">MD'S MESSAGE</a></li>
+            </ul> -->
+    </li>
+
+    <!-- <script>
+        var button = document.getElementById("dropdownActivate");
+        alert(button);
+    </script> -->
+
+    <li class="nav__list__item"><a href="/courses">COURSES</a></li>
+    <li class="nav__list__item"><a href="/alumini">ALUMINI</a></li>
+    <li class="nav__list__item"><a href="">ACADEMICS</a></li>
+    <li class="nav__list__item"><a href="/student_life">STUDENT LIFE</a></li>
+    <li class="nav__list__item"><a href="/certificate">CERTIFICATE</a></li>
+    <li class="nav__list__item"><a href="/contact_us">CONTACT US</a></li>
+  </ul>
+</nav>

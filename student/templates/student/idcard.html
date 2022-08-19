@@ -1,0 +1,137 @@
+{% extends 'student/base.html' %}
+{% load static %}
+{% block title %} id Card {% endblock title %}
+{% block css %}
+<link rel="stylesheet" href="{% static 'student/css/style.css' %}">
+
+<style>
+  @page {
+    size: A4 portrait;
+    margin: 0px;
+
+  }
+
+  @media print {
+    body {
+      -webkit-print-color-adjust: exact;
+      -moz-print-color-adjust: exact;
+      -ms-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+  }
+</style>
+
+{% endblock css %}
+
+{% block content %}
+
+
+
+
+<div class="container-fluid">
+  <marquee behavior="" direction="" class="text-danger"><b>*St. Aloysius International University website "UNDER
+      MAINTENANCE" please check your results below. Thank You!</b></marquee>
+  <div class="row d-flex justify-content-center">
+    <div class="col-10 my-3">
+      <H3 class="text-black text-center" id='alumni'>ALUMNI </H3>
+      <p class="text-start">
+        St Aloysius International University boasts of a successful alumnus, where our students have reached great
+        heights in both professional and personal lives. They have procured gastul employment in some of the most
+        lucrative companies all over the world. Our unique learning experience and helps maximize your employment
+        prospects, and seperate you from the rest of the crowd SAR provides fertile grounds to determine and explore
+        co-cumcular activities, which are just as valuable as a good educating training in securing lucrative employment
+        prospects
+      </p>
+    </div>
+    <div class="col-md-5 mb-5 col-10">
+      <h5>Enrollment No.</h5>
+      <div class="">
+        <form action="" method="post">
+          {% csrf_token %}
+          <input name="enrollment_no" type="text" class="form-control" placeholder="Enter Enrollment No" required>
+          <div class="d-grid my-2">
+            <button type="submit" class="btn btn-primary my-1 ">Submit</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="container">
+
+
+  {% if idcard %}
+  <div class="row gx-0">
+    <div class="d-flex justify-content-center flex-column mb-4">
+      <h3 class="text-center">Alumni Details</h3>
+      <!-- <p class="text-end ">Please verify Marks Sheet / Certificate </p> -->
+      <input type="button" class="btn btn-primary text-white mb-1 m-auto" value="Download Id Card"
+        style="width:fit-content;" onclick="printCard()">
+    </div>
+
+    <div class="mess text-center my-1 mt-2 d-block d-lg-none">
+      <span class="text-danger ">*For download IdCard use Desktop Computer to get proper format*</span>
+    </div>
+
+    <div id="card" class="col-12 overflow-auto">
+      <div class="id-card m-auto mt-3">
+        <div class="card-logo d-flex justify-content-center">
+          <img style="width:270px;" class="d-block text-center py-1" src="{% static 'student/image/logo2.png' %}"
+            alt="St. John's University Logo">
+        </div>
+        <div class="w-100 bg-primary text-white text-center mb-2 coursename text-upper">
+          <h6 class="text-center">{{idcard.course_name}}</h6>
+        </div>
+        <div class="id-card-user mt-2 title">
+          <img src="{{idcard.image.url}}" alt="" width="120vw" class="m-auto border border-2   border-dark d-block">
+          <h6 class="text-center fw-bold my-1">{{idcard.name}}</h6>
+          <div class="ms-3 id-card-info px-2">
+            <p> <b> Enrollment No:</b> {{idcard.enrollment_no}}</p>
+            <p> <b> Father's Name: </b> {{idcard.fathers_name}} </p>
+            <p> <b> Date of Birth: </b> {{idcard.dob}}</p>
+            <p style="width:85%;"> <b> Address :</b> {{idcard.address}}</p>
+            <div class="d-flex align-items mb-2  position-relative">
+              <div class="issuing-year">
+                <p> <b> Issuing Year :</b> {{idcard.issuing_year}}</p>
+                <p> <b> Validity Year :</b> {{idcard.validity_year}}</p>
+              </div>
+              <img src="{% static 'student/image/saistamp.png' %}" class="brand-logo" alt="">
+              <div class="signature position-relative">
+                <img src="{% static 'student/image/signature.png' %}" alt="" class="sign">
+                <div class="authority">
+                  <span>SIGNATURE</span>
+                  <small>OF Issuing</small>
+                  <small>AUTHORITY</small>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <!-- <div class="w-100 bg-primary text-white pt-1  px-1 university text-upper">
+          <h6 class="text-center uppercase">ST. Aloysius UNIVERSITY</h6>
+        </div>  -->
+      </div>
+    </div>
+  </div>
+  <footer class="pt-4 mt-5 ">
+    <p class="text-center text-muted"> If you have any query please mail us to <a
+        href="mailto:administrator@saiu-edu.in">administrator@saiu-edu.in</a></p>
+  </footer>
+  {% endif %}
+</div>
+
+<script>
+  function printCard() {
+    var backup = document.body.innerHTML
+    var AdmitcardHtml = document.getElementById('card').innerHTML
+
+    document.body.innerHTML = AdmitcardHtml
+    window.print()
+    document.body.innerHTML = backup
+  }
+</script>
+
+{% endblock content %}

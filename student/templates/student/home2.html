@@ -1,0 +1,241 @@
+{% extends 'student/base.html' %}
+{% load static %}
+{% block title %} St. Aloysius International University {% endblock title %}
+{% block css %}
+<link rel="stylesheet" href="{% static 'student/css/common.css' %}">
+<link rel="stylesheet" href="{% static 'student/css/style.css' %}">
+
+
+{% endblock css %}
+
+{% block content %}
+
+
+<div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-inner" style="z-index: -1;">
+    <div class="carousel-item active">
+      <img src="{% static 'student/image/slide1.jpg' %}" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="{% static 'student/image/slide2.jpg' %}" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="{% static 'student/image/slide3.jpg' %}" class="d-block w-100" alt="...">
+    </div>
+
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+
+
+<div class="container mt-3">
+  <div class="row" id="iconF" style="display: flex;overflow-y: hidden; overflow-x: hidden;">
+    <div class="col-xl-2 ">
+      <div class="bg-transparent d-flex justify-content-center align-items-center course-left"
+        style="width: 150px;height: 150px;">
+        <a href="/courses"
+          class="hover-parent rounded-circle bg-white w-75 h-75 d-flex justify-content-center align-items-center position-relative overflow-hidden">
+          <img src="{% static 'student/image/technology.png' %}" class="w-50 h-50">
+          <div class="hover-element">
+            <div>Technical Course</div>
+          </div>
+        </a>
+      </div>
+    </div>
+    <div class="col-xl-2 ">
+      <div class="bg-transparent d-flex justify-content-center align-items-center course-left1"
+        style="width: 150px;height: 150px;">
+        <a href="/health_science_courses"
+          class="hover-parent rounded-circle bg-white w-75 h-75 d-flex justify-content-center align-items-center position-relative overflow-hidden">
+          <img src="{% static 'student/image/management.png' %}" class="w-50 h-50">
+          <div class="hover-element">
+            <div>Management Course</div>
+          </div>
+        </a>
+      </div>
+    </div>
+    <div class="col-xl-2 ">
+      <div class="bg-transparent d-flex justify-content-center align-items-center course-bottom"
+        style="width: 150px;height: 150px;">
+        <a href="/health_science_courses"
+          class="hover-parent rounded-circle bg-white w-75 h-75 d-flex justify-content-center align-items-center position-relative overflow-hidden">
+          <img src="{% static 'student/image/health.png' %}" class="w-50 h-50">
+          <div class="hover-element">
+            <div>Health Science</div>
+          </div>
+        </a>
+      </div>
+    </div>
+    <div class="col-xl-2 ">
+      <div class="bg-transparent d-flex justify-content-center align-items-center course-bottom"
+        style="width: 150px;height: 150px;">
+        <a href="/certificate"
+          class="hover-parent rounded-circle bg-white w-75 h-75 d-flex justify-content-center align-items-center position-relative overflow-hidden">
+          <img src="{% static 'student/image/certification.png' %}" class="w-50 h-50">
+          <div class="hover-element">
+            <div>Certified Courses</div>
+          </div>
+        </a>
+      </div>
+    </div>
+    <div class="col-xl-2 ">
+      <div class="bg-transparent d-flex justify-content-center align-items-center course-right"
+        style="width: 150px;height: 150px;">
+        <a href="/courses"
+          class="hover-parent rounded-circle bg-white w-75 h-75 d-flex justify-content-center align-items-center position-relative overflow-hidden">
+          <img src="{% static 'student/image/pg.png' %}" class="w-50 h-50">
+          <div class="hover-element">
+            <div>Post Graduation</div>
+          </div>
+        </a>
+      </div>
+    </div>
+    <div class="col-xl-2 course-right">
+      <div class="bg-transparent d-flex justify-content-center align-items-center course-right1"
+        style="width: 150px;height: 150px;">
+        <a href="/courses"
+          class="hover-parent rounded-circle bg-white w-75 h-75 d-flex justify-content-center align-items-center position-relative overflow-hidden">
+          <img src="{% static 'student/image/research.png' %}" class="w-50 h-50">
+          <div class="hover-element">
+            <div>Research Courses</div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<div class="container">
+  <div class="card-group  my-4 blog-card">
+    <div class="card mx-2" id="changing">
+      <img src="{% static 'student/image/regular courses.jpg' %}" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">REGULAR COURSES</h5>
+        <p class="card-text">Comming soon. </br> <b> <a href="/courses">Read More</a></b></p>
+      </div>
+    </div>
+    <div class="card mx-2" id="changing">
+      <img src="{% static 'student/image/alumini.jpg' %}" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">ALUMINI</h5>
+        <p class="card-text">St. Aloysius International University boasts of a successful alumnus.... </br> <b> <a
+              href="/alumini">Read More</a></b></p>
+      </div>
+    </div>
+    <div class="card mx-2" id="changing">
+      <img src="{% static 'student/image/academics.jpg' %}" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">ACADEMICS</h5>
+        <p class="card-text">St Aloysius International University provides a wide range of courses... </br> <b> <a
+              href="/academics">Read More</a></b></p>
+      </div>
+    </div>
+    <div class="card mx-2" id="changing">
+      <img src="{% static 'student/image/enquiries.jpg' %}" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">ENQUIRIES</h5>
+        <p class="card-text">Coming soon. </br> <b> <a href="/contact_us">Read More</a></b></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr>
+
+
+
+<div class="container my-2">
+  <div class="row">
+    <div class="col-6 greeting-left">
+      <h5>WELCOME TO <br>
+        ST. ALOYSIUS INTERNATIONAL UNIVERSITY !</h5>
+      <img src="{% static 'student/image/img1.jpg' %}" class="card-img-top" alt="...">
+      <h5>We are among the leading research and teaching institutions of the world!</h5>
+      <p>
+        Founded in 1996, St. Aloysius International University aims at training its residents for personal and
+        professional success in today's society. Our competent teaching staffs strive to bring out the best in our
+        students, which has been responsible for the fantastic results we produce year after year. Our expert
+        representatives scout the world with information about our courses and infrastructure to help international
+        students make well-informed decisions about their higher education. We offer courses in the SSA scheme, which
+        allows our students to complete a part of their degree in the St. Aloysius campus.</p>
+      <p class="readmore"><a href="/about" title="Read more">Read more</a></p>
+    </div>
+
+    <div class="col-6 greeting-right">
+      <div class="row">
+        <div class="col-6">
+          <h5>E-BOOKS</h5>
+          <img src="{% static 'student/image/education.jpg' %}" class="card-img-top" alt="...">
+        </div>
+        <div class=" col-6">
+          <h6>NEWS AND EVENTS</h6>
+          <div class="card mb-3" style="max-width: 540px;">
+            <div class="row g-0">
+              <div class="col-md-4" id="changing">
+                <img src="{% static 'student/image/img2.jpeg' %}" class="img-fluid rounded-start" alt="...">
+              </div>
+              <div class="col-md-8" id="changing">
+                <p class="card-text" id="changing">Comming Soon</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% if x1.display != False %}
+      <div class="row">
+        <div class="col-12">
+          <div class="bg-light rounded-3">
+            <div class="mt-3 container-fluid changings">
+              <h1>
+                <a href="/result" class="glow_button mt-1">Check your result here</a>
+              </h1>
+              <p class="col-md-12 fs-6">St Aloysius International University boasts of a successful alumnus, where our
+                students have reached great heights in both professional and personal lives. They have procured gastul
+                employment in some of the most lucrative companies all over the world.
+              </p>
+              {% comment %} <button class="btn btn-primary btn-lg glow_button mb-3" type="button"> {% endcomment %}
+                <a href="/result" class="glow_button my-2">Read more & Check result</a>
+                {% comment %} </button> {% endcomment %}
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endif %}
+
+    </div>
+  </div>
+</div>
+
+<script>
+  const sr = ScrollReveal({
+    origin: 'top',
+    distance: '60px',
+    duration: 1500,
+    delay: 400,
+  })
+  //sr.reveal('#head',{origin:'bottom'}) 
+  //sr.reveal('#mylogo',{ origin: 'top' })
+  //sr.reveal('.navbar',{ origin: 'bottom',delay:450 })
+  sr.reveal('.carousel', {origin:'bottom', delay: 500 })
+  sr.reveal('.course-left', { delay: 600, origin: 'left', duration:2000 })
+  sr.reveal('.course-left1', { delay: 650, origin: 'left', duration:2000 })
+  sr.reveal('.course-bottom', { delay: 750, origin: 'bottom' , duration:2000, distance:'100px'})
+  sr.reveal('.course-right', { delay: 850, origin: 'right' , duration:2000})
+  sr.reveal('.course-right1', { delay: 900, origin: 'right', duration:2000 })
+  sr.reveal('.blog-card', { delay: 900, origin: 'bottom', duration:2000 })
+  sr.reveal('.greeting-left', { delay: 900, origin: 'left', duration:2500 })
+  sr.reveal('.greeting-right', { delay: 900, origin: 'right', duration:2500 })
+
+
+</script>
+
+{% endblock content %}

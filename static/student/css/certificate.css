@@ -1,0 +1,29 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.container{
+    background-color: rgb(220,190,152);
+    align-items: center;
+    text-align: center;
+    margin: 40px 200px;
+    padding: 10px 40px;
+    height: 1200px;
+}
+.para{
+    padding: 30px 50px;
+    letter-spacing: 1px;
+    font-size: 25px;
+    text-align: left;
+}
+.right{
+    text-align: right;
+    position: absolute;
+    right: 400px;
+    /* width :100px; */
+}
+/* hr{
+    width: 50%;
+    color: black;
+} */

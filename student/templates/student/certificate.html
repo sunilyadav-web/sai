@@ -1,0 +1,160 @@
+{% extends 'student/base1.html' %}
+{% block title %} Certificate {% endblock title %}
+
+{% block css %}
+<style>
+  .dropbtn {
+    background-color: #04AA6D;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+  }
+  /* Dropdown Content (Hidden by Default) */
+  .dropdown-content {
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+  }
+  .dropdown:hover .dropbtn {
+    background-color: #3e8e41;
+  }
+</style>
+
+{% endblock css %}
+
+{% load static %}
+
+{% block image %}
+<img src="{% static 'student/image/certified_courses.jpg' %}" class="img-fluid" alt="...">
+{% endblock image %}
+
+{% block subtitle %}
+CERTIFICATIONS
+{% endblock subtitle %}
+
+
+{% block para %}
+
+<div class="container">
+  <div class="row d-flex justify-content-center">
+    <div class="col-md-5 mb-5 col-10">
+      <h5>Enrollment No.</h5>
+      <div class="">
+        <form action="" method="post">
+          {% csrf_token %}
+          <input name="searched" type="text" class="form-control" placeholder="CenterID" required>
+          <div class="d-grid my-2">
+            <button type="submit" class="btn btn-primary my-1 ">Submit</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% if queryset %}
+<div class="container">
+  <div class="row">
+    <div class="col my-2">
+      {% for query in queryset %}
+      <div class="dropdown d-grid gap-2">
+        <button type="button" class="dropbtn btn btn-primary">
+          {{query.name}}
+        </button>
+        <div class="dropdown-content col-12">
+          <div class="container">
+            <div class="row row-2 my-4 border border-secondary">
+              <div class="col-12 border border-secondary">
+                <b>{{query.center_id}}</b>
+              </div>
+              <div class="col-6 border border-secondary">Name</div>
+              <div class="col-6 border border-secondary">{{query.name}}</div>
+              <div class="col-6 border border-secondary">Office Address</div>
+              <div class="col-6 border border-secondary">
+                {{query.office_at}}
+              </div>
+              <div class="col-6 border border-secondary">Period of</div>
+              <div class="col-6 border border-secondary">
+                {{query.period_of}}
+              </div>
+              <div class="col-6 border border-secondary">Period to</div>
+              <div class="col-6 border border-secondary">
+                {{query.period_to}}
+              </div>
+              <div class="col-6 border border-secondary">Place</div>
+              <div class="col-6 border border-secondary">{{query.place}}</div>
+              <div class="col-6 border border-secondary">Date</div>
+              <div class="col-6 border border-secondary">{{query.date}}</div>
+              <div class="col-6 border border-secondary">Center Id</div>
+              <div class="col-6 border border-secondary">
+                <strong>{{query.center_id}}</strong>
+              </div>
+            </div>
+          </div>
+
+          <div class="container">
+            <div class="row">
+              <div class="col">
+                {% if query.file %}
+                <a class="btn btn-dark text-white" href="{{query.file.url}}" download="{{query.file.url}}"
+                  role="button">Download</a>
+                {% else %}
+                <a class="btn btn-dark text-white" role="button">Certificate Not Uploaded</a>
+                {% endif %}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>{% endfor %}
+{% endif %}
+
+{% endblock para %}
+
+{% block content %}
+
+{% endblock content %}
+
+
+
+<!-- <div class="row">
+  <div class="col-12 my-2">
+    {% for query in queryset %}
+    <div class="dropdown d-grid gap-2">
+      <button type="button" class="dropbtn btn btn-primary ">{{query.name}}</button>
+      <div class="dropdown-content col-12 ">
+        <div class="container">
+          <div class="row row-2 my-4 border border-secondary ">
+            <div class="col-12 border border-secondary"><b>{{query.center_id}}</b></div>
+            <div class="col-6 border border-secondary">Name</div>
+            <div class="col-6 border border-secondary">{{query.name}}</div>
+            <div class="col-6 border border-secondary">Office Address</div>
+            <div class="col-6 border border-secondary">{{query.office_at}}</div>
+            <div class="col-6 border border-secondary">Period of </div>
+            <div class="col-6 border border-secondary">{{query.period_of}}</div>
+            <div class="col-6 border border-secondary">Period to</div>
+            <div class="col-6 border border-secondary">{{query.period_to}}</div>
+            <div class="col-6 border border-secondary">Place</div>
+            <div class="col-6 border border-secondary">{{query.place}}</div>
+            <div class="col-6 border border-secondary">Date</div>
+            <div class="col-6 border border-secondary">{{query.date}}</div>
+            <div class="col-6 border border-secondary">Center Id</div>
+            <div class="col-6 border border-secondary"><strong>{{query.center_id}}</strong></div>
+          </div>
+        </div>
+          {% if query.file %}
+          <a class="btn btn-dark text-primary " href download="{{query.file.url}}" role="button">Download</a>
+          {% else %}
+          <a class="btn btn-dark text-primary " href="{% url 'certification-pdf-view' query.enrollment_no %}"
+            role="button">Download</a>
+          {% endif %}
+      </div>
+    </div>
+    {% endfor %}
+
+  </div>
+</div> -->

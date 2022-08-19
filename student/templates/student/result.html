@@ -1,0 +1,146 @@
+{% extends 'student/base.html' %}
+{% load static %}
+{% block title %} Result {% endblock title %}
+{% block css %}
+<link rel="stylesheet" href="{% static 'student/css/style.css' %}">
+<style>
+  @page {
+    size: A4 portrait;
+    scale: 81;
+  }
+</style>
+
+{% endblock css %}
+
+{% block content %}
+
+
+
+
+<div class="container">
+  <marquee behavior="" direction="" class="text-danger"><b>*St. Aloysius International University website "UNDER
+      MAINTENANCE" please check your results below. Thank You!</b></marquee>
+  <div class="row d-flex justify-content-center">
+    <div class="col-10">
+      <h3 class="text-black" id='alumni'>ALUMNI </h3>
+      <p>
+        St Aloysius International University boasts of a successful alumnus, where our students have reached great
+        heights
+        in both professional and personal lives. They have procured gastul employment in some of the most lucrative
+        companies all over the world. Our unique learning experience and helps maximize your employment prospects, and
+        seperate you from the rest of the crowd SAR provides fertile grounds to determine and explore co-cumcular
+        activities, which are just as valuable as a good educating training in securing lucrative employment prospects
+      </p>
+    </div>
+    <div class="col-md-5 mb-5 col-10 my-2">
+      <h5>Enrollment No.</h5>
+      <div class="">
+        <form action="" method="post">
+          {% csrf_token %}
+          <input name="enrollment_no" type="text" class="form-control" placeholder="Enter Enrollment No" required>
+          <div class="d-grid my-2">
+            <button type="submit" class="btn btn-primary my-1 ">Submit</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  {% if semesters %}
+
+
+  <div class="my-3 text-center">
+    <h3 class="title d-inline">Alumni Details</h3>
+    <a onclick="myfunc()"><input type="submit" class="btn bg-primary text-white mb-1" value="Print Result">
+    </a>
+  </div>
+  <div class="mess text-center my-1 mt-2 d-block d-lg-none">
+    <span class="text-danger ">*For Printing Result use Desktop Computer to get proper format*</span>
+  </div>
+  <div class="row mb-3 overflow-auto" id="divthree">
+    <div class="m-auto result-container">
+      <div class="card-logo d-flex justify-content-center my-3 mb-4">
+        <img style="height:55px;" class="img-responsive d-block text-center "
+          src="{% static 'student/image/logo2.png' %}" alt="St. John's University Logo">
+      </div>
+        <table class="w-100">
+          <tr>
+            <td>
+              <img class="result-avtar" src="{{profile.profile_pic.url}}" alt="">
+            </td>
+            <td>
+              <div class="ms-4 mb-2 result-user-info">
+                <p> <b> Enrollment No:</b> {{profile.enrollment_no}}</p>
+                <p> <b> Name : </b> {{profile.name}}</p>
+                <p> <b> Father's Name : </b> {{profile.father_name}} </p>
+                <p> <b> Course :</b> {{profile.course}}</p>
+                <p> <b> Specialization:</b> {{profile.specialization}}</p>
+                <p> <b> Year :</b> {{profile.academic_year}}</p>
+                <p> <b> Year of Passing :</b> {{profile.year_of_passing}}</p>
+              </div>
+            </td>
+          </tr>
+        </table>
+      <div class="mt-3 mb-3">
+        <table class="table table-bordered border-secondary " style="margin-top: 20px;">
+          <h5 class="text-center title"> Statement of Marks </h5>
+          <thead>
+            <tr>
+              <th scope="row">Particulars</th>
+              <th>Max</th>
+              <th>Min</th>
+              <th>Obtained</th>
+              <th>Remarks</th>
+            </tr>
+          </thead>
+
+          {% for sem in semesters %}
+          <tr>
+            <th scope="col">{{sem.particular}}</th>
+            <td>{{sem.max_marks}}</td>
+            <td>{{sem.min_marks}}</td>
+            <td>{{sem.obtained}}</td>
+            <td>{{sem.remarks}}</td>
+          </tr>
+          {% endfor %}
+
+
+          <tbody>
+            <tr>
+              <th scope="col"></th>
+              <td>{{total_max_marks}}</td>
+              <td>{{total_min_marks}}</td>
+              <td>{{total_obtained_marks}}</td>
+              <td>{{student_percentage}}%</td>
+            </tr>
+          </tbody>
+          <tbody>
+            <tr>
+              <td colspan="3" class="text-center"><b> GRADE</b></td>
+              <td colspan="2" class="fw-semibold text-center">{{grade}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript">
+    function myfunc() {
+      var backup = document.body.innerHTML;
+      var divthree = document.getElementById('divthree').innerHTML;
+
+      document.body.innerHTML = divthree;
+      window.print();
+      document.body.innerHTML = backup;
+    }
+  </script>
+
+  <footer class="pt-4 mt-2 ">
+    <p class="text-center text-muted"> If you have any query please mail us to <a
+        href="mailto:administrator@saiu-edu.in">administrator@saiu-edu.in</a></p>
+  </footer> 
+
+  {% endif %}
+</div>
+
+{% endblock content %}

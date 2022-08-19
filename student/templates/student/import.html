@@ -1,0 +1,13 @@
+{% extends "student/base1.html" %}
+
+{% block image %}
+  
+<form enctype="multipart/form-data" action="" method="post">
+    {% csrf_token %}
+    <div>
+        <label for="formFileLg" class="form-label">Select exported recore file</label>
+        <input class="form-control form-control-lg" name="my_uploaded_file" type="file">
+      </div>
+      <button class="btn btn-success m-5 btn-center" style='width: 50%; font-size: larger;' type="submit">Submit</button>
+</form>
+{% endblock image %}

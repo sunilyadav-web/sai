@@ -1,0 +1,44 @@
+{% extends 'student/base.html' %}
+
+{% block content %}
+
+<div class="container py-3 my-3">
+    <div class="row d-flex justify-content-center">
+        {% if not exam_obj %}
+        <div class="col-11 col-md-6 py-3 pt-4 ">
+            <h2 class="text-center title ">Get Your Exam Paper</h2>
+            <form action="" method="post">
+                {% csrf_token %}
+                <div class="inputs" style="margin-bottom:20px;">
+                    <label class="form-label" for="">Enrollment No.</label>
+                    <input type="text" class="form-control" name="enrollment_no" id=""
+                        placeholder="Search Enrollment No.">
+                </div>
+                <div class="d-grid">
+                    <input type="submit" class="btn btn-info" value="Submit">
+                </div>
+            </form>
+        </div>
+        {% else %}
+
+        <div class="col-11 d-flex justify-content-center flex-column">
+
+            <h5 class="text-start title">{{exam_obj.exam_title}}</h5>
+            <div class="info-header text-start">
+                <h6 class="pe-2 ">Time : {{ time }}</h6> <h6 class="">Exam Code : {{exam_obj.code}}</h6>
+            </div>
+            <div class="info text-start">
+                <h6>Enrollment No. - {{exam_obj.enrollment_no}}</h6>
+                <h6>Name  - {{exam_obj.student_name}}</h6>
+                <h6 class="text-danger">Note- {{exam_obj.note | safe }}</h6>
+                <h6>Download Question Paper:  <a href="{{exam_obj.paper.url}}" download="{{exam_obj.paper.url}}" class="btn-dark btn mx-3">Download</a></h6>
+            </div>
+
+        </div>
+
+        {% endif %}
+    </div>
+</div>
+
+
+{% endblock content %}

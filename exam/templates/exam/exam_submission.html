@@ -1,0 +1,36 @@
+{% extends 'student/base.html' %}
+
+{% block content %}
+
+{% load static %}
+<div class="container">
+    <div class="row d-flex justify-content-center">
+        <div class="col-11 col-md-6 py-3 pt-4 ">
+            <h1 class='text-center title text-uppercase'>Submit Exam</h1>
+            <form method="POST" action="" enctype="multipart/form-data" >
+                {% csrf_token %}
+                <div class="mb-2">
+                    <label class="form-label" for="name">Name</label>
+                    <input class="form-control" type="text" name="student_name" id="name" required >
+                </div>
+                <div class="mb-2">
+                    <label class="form-label" for="enroll">Enrollment No. </label>
+                    <input class="form-control" type="text" name="enrollment_no" id="enroll" >
+                </div>
+                <div class="mb-2">
+                    <label class="form-label" for="code">Exam Code</label>
+                    <input class="form-control" type="tel" name="exam_code" id="code" required>
+                </div>
+                <div class="mb-2">
+                    <label class="form-label" for="answer">Upload Your Anser PDF</label>
+                    <input class="form-control" type="file" name="answer" id="answer" required >
+                </div>
+                <div class="d-grid mt-3">
+                    <input class="btn btn-info" type="submit" value="Submit">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

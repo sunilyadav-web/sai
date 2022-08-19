@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    {% load static %}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'student/css/certificate.css' %}">
+    <title>{{myvar.enrollment_no}}</title>
+</head>
+<body>
+    <div class="container">
+        <img  src="{% static 'student/images/my-image.png' %}">
+        <h2 style="font-style: italic; color: rgb(134, 110, 77); font-size: 30px;"><u>AUTHORIZATION CERTIFICATE</u></h2>
+        <br>
+        <br>
+        <div class="para">
+            <p>
+               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;It is herby informed that <u>{{myvar.name}}</u> having its registered office at <u>{{myvar.office_at}}</u> HAS BEEN ASSIGNED BY ST. Aloysius International University to Act as a National Coordinator for admission of students into courses offered by the university.
+            </p>
+            <br>
+            <br>
+            <p>
+                It Shall be the responsibility of the authorized agency to observe all rules and regulation of St. Aloysius  INternational University, This certificate is valid for a period of <u>{{myvar.period_of}}</u> to <u>{{myvar.period_to}} to {{myvar.period_to}}</u> year from the date of issuance of this letter.
+            </p>
+            <br>
+            <br>
+            <br>
+            <br>
+
+            <h4>Place : <u>{{myvar.place}}</u></h4><br>
+            <h4>Date : <u>{{myvar.date}}</u></h4>
+            <div class="right">
+                <div style="border-bottom: 2px solid black; width: 200px ; padding-left: 200px;"></div><br>
+                <div>
+                    <h4>Seal and Signature</h4> <br>
+                <h4>Managing Director</h4>
+                </div>
+                
+            </div>
+        </div>       
+        
+    </div>
+</body>
+</html>

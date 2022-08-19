@@ -1,0 +1,394 @@
+{% load static %}
+
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <link rel="stylesheet" href="{% static 'student/css/common.css' %}">
+
+  <!-- Scroll Reveal CDN Link -->
+  <script src="https://unpkg.com/scrollreveal"></script>
+
+  {% block css %}
+  {% endblock css %}
+
+  <title>{% block title %}{% endblock title %}</title>
+  <link rel="icon" type="image/x-icon" href="{% static 'student/image/favicon.ico' %}">
+
+  <script src="https://kit.fontawesome.com/e2dcc9a276.js" crossorigin="anonymous"></script>
+</head>
+<style>
+  body {
+    background-color: #cceffb;
+  }
+
+  @media screen and (max-width: 992px) {
+    .custom-nav {
+      flex-direction: row !important;
+      gap: 10px;
+      flex-wrap: nowrap;
+    }
+
+    .navbar-nav {
+      margin-left: 0;
+    }
+  }
+</style>
+
+<body>
+
+  <div class="w-100">
+
+
+    {% if messages %}
+    <ul class="messages">
+      {% for message in messages %}
+      <div class="alert alert-{{message.tags}} alert-dismissible fade show m-2" role="alert">
+        <strong>{{message}}</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+      {% endfor %}
+    </ul>
+    {% endif %}
+
+
+    <div id='mylogo'>
+      <img class='img-fluid mx-auto pt-2 d-block' src="{% static 'student/image/logo2.png' %}" alt="CoolBrand">
+    </div>
+
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-info  mt-2">
+      <div class="container">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDarkDropdown"
+          aria-controls="navbarNavDarkDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/">HOME</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle active" href="/about" id="navbarDarkDropdownMenuLink" role="button"
+                data-bs-toggle="dropdown" aria-expanded="false">
+                ABOUT US
+              </a>
+              <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
+                <li><a class="dropdown-item" href="/faith">FAITH AND SERIVCES</a></li>
+                <li><a class="dropdown-item" href="/md_message">MD'S MESSAGE</a></li>
+              </ul>
+            </li>
+
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle active" href="#" id="navbarDarkDropdownMenuLink" role="button"
+                data-bs-toggle="dropdown" aria-expanded="false">
+                COURSES
+              </a>
+              <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
+                <li><a class="dropdown-item" href="/health_science_courses">HEALTH SCIENCE COURSES</a></li>
+                <li><a class="dropdown-item" href="/engineering_courses">ENGINEERING COURSES</a></li>
+                <li><a class="dropdown-item" href="/management_courses">MANAGEMENT COURSES</a></li>
+                <li><a class="dropdown-item" href="/certified_courses">CERTIFIED COURSES</a></li>
+              </ul>
+            </li>
+
+            <a class="nav-link active" href="/alumini">ALUMINI</a>
+
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle active" href="#" id="navbarDarkDropdownMenuLink" role="button"
+                data-bs-toggle="dropdown" aria-expanded="false">
+                ACADEMICS
+              </a>
+              <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
+                <li><a class="dropdown-item" href="/library">LIBRARY</a></li>
+                <li><a class="dropdown-item" href="/research">RESEARCH</a></li>
+                <li><a class="dropdown-item" href="/global_option">GLOBAL</a></li>
+              </ul>
+            </li>
+
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle active" href="#" id="navbarDarkDropdownMenuLink" role="button"
+                data-bs-toggle="dropdown" aria-expanded="false">
+                DOCUMENTS
+              </a>
+              <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
+                <li><a class="dropdown-item" href="/idcard">ID CARD</a></li>
+                <li><a class="dropdown-item" href="/admitcard">ADMIT CARD</a></li>
+                <li><a class="dropdown-item" href="/certificate">CERTIFICATE</a></li>
+              </ul>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link active" href="/student_life">STUDENT LIFE</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="/contact_us">CONTACT US </a>
+            </li>
+
+            {% if x2.display %}
+            <li class="nav-item">
+              <a class="glow_button nav-link" href="/result">RESULT</a>
+            </li>
+            {% else %}
+            <li class="nav-item">
+              <a class="nav-link active" href="/result">RESULT</a>
+            </li>
+            {% endif %}
+            <li class="nav-item">
+              <a class="nav-link active" href="{% url 'exam:home' %}">EXAM</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle active" href="#" id="account-dropdown" role="button"
+                data-bs-toggle="dropdown" aria-expanded="false">
+                ACCOUNT
+              </a>
+              <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="account-dropdown">
+                {% if request.user.is_authenticated %}
+                <li><a class="dropdown-item" href="{% url 'users:logout' %}">LOGOUT</a></li>
+                {% else %}
+                <li><a class="dropdown-item" href="{% url 'users:login' %}">LOGIN</a></li>
+                <li><a class="dropdown-item" href="{% url 'users:register' %}">REGISTER</a></li>
+                {% endif %}
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+   
+
+
+    {% block content %}{% endblock content %}
+
+
+
+    <!-- Footer -->
+    <footer class="bg-dark text-center text-white">
+      <!-- Grid container -->
+      <div class="container p-4">
+
+        <!-- Section: Form -->
+        <section class="">
+          <form action="">
+            <!--Grid row-->
+            <div class="row d-flex justify-content-center">
+              <!--Grid column-->
+              <div class="col-auto">
+                <h4>CONNECT WITH US</h4>
+                <p class="pt-2">
+                  <small>We're on Social Networks. Follow us & get in touch. </small>
+                </p>
+              </div>
+              <!--Grid column-->
+
+              <!-- Social Media -->
+              <section class="mb-4">
+                <!-- Facebook -->
+                <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i
+                    class="fab fa-facebook-f"></i></a>
+
+                <!-- Twitter -->
+                <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i
+                    class="fab fa-twitter"></i></a>
+
+                <!-- Google -->
+                <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i
+                    class="fab fa-google"></i></a>
+
+
+
+
+              </section>
+              <!-- Social Media -->
+
+              <hr>
+
+
+
+
+            </div>
+            <!--Grid row-->
+          </form>
+        </section>
+        <!-- Section: Form -->
+
+        <!-- Section: Text -->
+        <section class="mb-4">
+          <p>
+
+          </p>
+        </section>
+        <!-- Section: Text -->
+
+        <!-- Section: Links -->
+        <section class="">
+          <!--Grid row-->
+          <div class="row">
+            <!--Grid column-->
+            <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+              <h5 class="text-uppercase">QUICK LINKS
+              </h5>
+
+              <ul class="list-unstyled mb-0">
+                <li>
+                  <a href="/about" class="text-white">About us</a>
+                </li>
+                <li>
+                  <a href="/" class="text-white" s>News and Events</a>
+                </li>
+                <li>
+                  <a href="/faith" class="text-white">Faith And Services
+                  </a>
+                </li>
+                <li>
+                  <a href="/md_message" class="text-white">MDs Message</a>
+                </li>
+                <li>
+                  <a href="/contact_us" class="text-white">Contact Us</a>
+                </li>
+                <li>
+                  {% if x2.display != False %}
+                  <li class="pt-2">
+                    <a href="/result" class="glow_button text-white pb-2 mt-3 px-3">Result</a>
+                  </li>
+                  {% else %}
+                  <a href="/result" class="text-white">Result</a>
+                  {% endif %}
+                </li>
+              </ul>
+            </div>
+            <!--Grid column-->
+
+            <!--Grid column-->
+            <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+              <h5 class="text-uppercase">COURSES</h5>
+
+              <ul class="list-unstyled mb-0">
+                <li>
+                  <a href="/engineering_courses" class="text-white">Technical Courses</a>
+                </li>
+                <li>
+                  <a href="/management_courses" class="text-white">Management Courses</a>
+                </li>
+                <li>
+                  <a href="/health_science_courses" class="text-white">Health Science</a>
+                </li>
+                <li>
+                  <a href="/certified_courses" class="text-white">Certified Course</a>
+                </li>
+
+              </ul>
+            </div>
+            <!--Grid column-->
+
+            <!--Grid column-->
+            <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+              <h5 class="text-uppercase">REACH US</h5>
+
+              <small>
+                <ul class="list-unstyled mb-0">
+                  <li>
+                    St. Aloysius International University
+
+                  </li>
+                  <li>
+                    No. 1507 11th Cross C-Block,
+                  </li>
+                  <li>
+                    Mariyappanapalya
+                  </li>
+                  <li>
+                    Rajajinagar, Bangalore - 560021.
+                  </li>
+                </ul>
+              </small>
+              <p>E-MAIL: administrator@saiu-edu.in
+
+              </p>
+              <p>PHONE: 080 - 32999559
+              </p>
+            </div>
+            <!--Grid column-->
+
+
+            <!--Grid column-->
+            <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+              <h5 class="text-uppercase"> <br> </h5>
+
+              <small>
+                <ul class="list-unstyled mb-0">
+                  <li>
+                    Branch office:
+                  </li>
+                  <li>
+                    #53/1 A, Divya Maple, 8th Main,
+                  </li>
+                  <li>
+                    16th Cross, Opp: Reliance fresh,
+                  </li>
+                  <li>
+                    Malleshwaram, Bangalore - 560 055.
+                  </li>
+                </ul>
+              </small>
+              <P>administrator@saiu-edu.in</P>
+              <P>080 - 32999559 , <br> 080 - 32999558, <br> 080 - 23429559</P>
+            </div>
+            <!--Grid column-->
+
+
+          </div>
+          <!--Grid row-->
+        </section>
+        <!-- Section: Links -->
+      </div>
+
+      <div class="container p-0"></div>
+      <!-- Grid container -->
+
+      <!-- Copyright -->
+      <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+        Copyright © 2022
+        <a class="text-white text-decoration-none ms-1" href="https://saiu-edu.in/">St. Aloysius. All Rights Reserved.</a>
+      </div>
+      <!-- Copyright -->
+    </footer>
+    <!-- Footer -->
+
+
+
+
+  </div>
+
+
+  <!-- Optional JavaScript; choose one of the two! -->
+
+  <!-- Option 1: Bootstrap Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+    crossorigin="anonymous"></script>
+
+  <!-- Option 2: Separate Popper and Bootstrap JS -->
+  <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+    -->
+
+
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+
+
+
+
+</body>
+
+</html>

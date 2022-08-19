@@ -1,0 +1,76 @@
+{% extends 'student/base1.html' %}
+{% load static %}
+{% block title %} Apply {% endblock title %}
+{% block css %}
+<link rel="stylesheet" href="{% static 'student/css/common.css' %}">
+{% endblock css %}
+
+{% block image %}
+<img src="{% static "student/image/acadamic.jpg" %}" class="img-fluid" alt="...">
+{% endblock image %}
+
+{% block subtitle %}
+APPLY
+{% endblock subtitle %}
+
+
+
+{% block para %}
+
+
+<form class="row g-3" method="post">
+    {% csrf_token %}
+    <div class="col-12">
+        <label for="inputAddress" class="form-label">Name</label>
+        <input name='name' type="text" class="form-control" id="inputAddress" placeholder="Your Name">
+      </div>
+
+    <div class="col-md-12">
+      <label for="inputEmail4" class="form-label">Email</label>
+      <input name='email' type="email" class="form-control" id="inputEmail4" placeholder="Your Email">
+    </div>
+    
+
+    <div class="col-md-12">
+    <label for="phone" class="form-label">Enter your phone number:</label>
+    <input name='phone' type="tel" class="form-control" id="phone" name="phone" placeholder='Phone No' >
+    </div>
+
+    <div class="col-md-12">
+        <label for="inputAddress" class="form-label">Subject</label>
+        <input name='subject' type="text" class="form-control" id="inputAddress" placeholder="Subject">
+    </div>
+
+    <div class="col-md-12">
+        <label for="applying_for" class="form-label">Select Courses</label>
+        <select name="course" class="form-select" size="3" aria-label="size 3 select example">
+            <option value="0" disabled selected>Choose your courses</option>
+            <option value="Health Science Courses">Health Science Courses</option>
+            <option value="Engineering Courses">Engineering Courses</option>
+            <option value="Management Courses">Management Courses</option>
+            <option value="Certified Courses">Certified Courses</option>
+            <option value="Other Courses">Other Courses</option>
+          </select>
+    </div>
+
+    <div class="col-md-12">
+        <label for="exampleFormControlTextarea1" class="form-label">Query</label>
+        <textarea name='query' class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+    </div>
+    
+    <div class="col-12">
+      <button type="submit" class="btn btn-primary">SUBMIT</button>
+    </div>
+  </form>
+
+
+
+{% endblock para %}
+
+
+
+{% block content %}
+ 
+
+
+{% endblock content %}

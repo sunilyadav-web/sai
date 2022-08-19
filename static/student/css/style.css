@@ -1,0 +1,189 @@
+
+.btn-circle {
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  padding: 6px 0;
+  font-size: 12px;
+  line-height: 1.428571429;
+  border-radius: 15px;
+}
+.btn-circle.btn-lg {
+  width: 50px;
+  height: 50px;
+  padding: 10px 16px;
+  font-size: 18px;
+  line-height: 1.33;
+  border-radius: 25px;
+}
+.btn-circle.btn-xl {
+  width: 150px;
+  height: 150px;
+  padding: 10px 16px;
+  font-size: 70px;
+  line-height: 1.33;
+  border-radius: 75px;
+}
+
+/* ====Result Page===== */
+.result-container{
+  overflow: auto;
+  width: 50rem !important;
+}
+.result-avtar{
+  width: 150px;
+  height: 170px;
+}
+.result-user-info{
+  width: 37rem;
+}
+.result-user-info p{
+  line-height: 8px;
+
+}
+
+/* =========Id Card Page======= */
+
+.id-card {
+  border: 3px solid #0d6efd;
+  border-radius: 4px;
+  background-color: white;
+  margin-top: 1.5rem;
+  width:300px;
+  font-family: monospace;
+  text-transform: uppercase;
+}
+.coursename{
+ padding-top: 8px;
+ padding-bottom: 1px;
+}
+.coursename h6{
+  font-size: 12px !important;
+}
+.university{
+  display: flex;
+  align-items: center;
+  
+}
+
+.id-card-user {
+  font-weight: bold;
+  font-size: 13px !important;
+}
+.id-card-user p {
+  margin-bottom: 1px;
+  
+}
+.issuing-year p{
+line-height: 20px;
+}
+.brand-logo{
+  height: 60px;
+position: absolute;
+left: 145px;
+bottom: -1px;
+}
+
+.authority{
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  color: #000000!important;
+  justify-content: center;
+  left: 63px;
+  bottom: 6px;
+}
+.sign{
+  height: 25px;
+  position: absolute;
+  left: 45px;
+  bottom: 42px;
+}
+.authority span {
+  font-size: 10px;
+}
+.signature small{
+  font-size: 7px;
+  margin-left: 8px;
+}
+
+
+/* =========ADMIT CARD PAGE=========== */
+.admit-body{
+  /* width: 30rem; */
+  /* height: 20rem; */
+}
+.admit-card {
+
+  background-image: url('../image/admitbg.png');
+  height: 405px;
+  width: 712px;
+  position: relative;
+  border-radius: 10px;
+  background-size: 715px 400px;
+  background-repeat: no-repeat;
+position: relative;
+}
+.hall-ticket{
+  position: absolute;
+  top: 25px;
+  right: 200px;
+  font-family: monospace;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+.admit-avtar {
+  position: absolute;
+  top: 57px;
+  right: 40px;
+}
+.admit-avtar img{
+  width: 130px;
+  height: 140px;
+}
+.student-info{
+  position: absolute;
+  top: 86px;
+  left: 25px;
+  width: 70%;
+  font-size: 10px !important;
+  font-family: monospace;
+  text-transform: uppercase;
+
+}
+.student-info h6{
+  line-height: 12px;
+  font-size: 12px !important;
+  font-weight: bold;
+}
+.exam-table{
+  position: absolute;
+  width: 500px;
+  bottom: 22px;
+  left: 25px;
+}
+.exam-table table{
+  font-size: 12px;
+  font-family: monospace;
+  text-transform: uppercase;
+  color: black;
+}
+.exam-table table th, td{
+  border: 1px solid darkblue;
+  padding: 4px 10px;
+}
+.exam-table table tr td{
+  font-weight: bold;
+}
+
+.note p {
+  font-size: 14px;
+}
+.note {
+  font-size: 14px;
+}
+
+
+@media only screen and (max-width: 600px) {
+
+}

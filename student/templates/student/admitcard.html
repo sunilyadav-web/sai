@@ -1,0 +1,193 @@
+{% extends 'student/base.html' %}
+{% load static %}
+{% block title %} Admit Card {% endblock title %}
+{% block css %}
+<link rel="stylesheet" href="{% static 'student/css/style.css' %}">
+
+{% endblock css %}
+
+{% block content %}
+
+
+
+
+<div class="container-fluid">
+  <marquee behavior="" direction="" class="text-danger"><b>*St. Aloysius International University website "UNDER
+      MAINTENANCE" please check your results below. Thank You!</b></marquee>
+
+  <div class="row d-flex justify-content-center">
+    <div class="col-10">
+      <h3 class="text-black text-center" id='alumni'>ALUMNI</h3>
+      <p>
+        St Aloysius International University boasts of a successful alumnus, where our students have reached great
+        heights in both professional and personal lives. They have procured gastul employment in some of the most
+        lucrative companies all over the world. Our unique learning experience and helps maximize your employment
+        prospects, and seperate you from the rest of the crowd SAR provides fertile grounds to determine and explore
+        co-cumcular activities, which are just as valuable as a good educating training in securing lucrative employment
+        prospects
+      </p>
+    </div>
+
+    <div class="col-md-5 mb-5 col-10">
+      <h5>Enrollment No.</h5>
+      <div class="">
+        <form action="" method="post">
+          {% csrf_token %}
+          <input name="enrollment_no" type="text" class="form-control" placeholder="Search Enrollment No" required>
+          <div class="d-grid my-2">
+            <button type="submit" class="btn btn-primary my-1 ">Submit</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+  </div>
+
+  {% if admitcard %}
+  <div class="row">
+    <div class="d-flex justify-content-center flex-column mb-4">
+      <h3 class="text-center">Alumni Details</h3>
+      <!-- <p class="text-end ">Please verify Marks Sheet / Certificate </p> -->
+      <a class="btn-primary btn m-auto" style="width:fit-content;"
+        href="{% url 'admit-pdf-view' admitcard.enrollment_no %}">DOWNLOAD IDCARD</a>
+    </div>
+
+
+    <div class="mess text-center my-1 mt-2 d-block d-lg-none">
+      <span class="text-danger ">*For download Admit Card use Desktop Computer to get proper format*</span>
+    </div>
+  </div>
+  <div id="card" class="body">
+    <div class="m-auto admit-body">
+      <div class="admit-card m-auto">
+        <div class="hall-ticket">
+          <h5>Hall - Ticket</h5>
+        </div>
+        <div class="admit-avtar">
+          <img src="{{admitcard.image.url}}" alt="" class="border border-dark border-2 rounded">
+        </div>
+        <div class="student-info ">
+          <div>
+            <h6>Enrollment No.:{{admitcard.enrollment_no}}</h6>
+            <h6>Name: {{admitcard.name}}</h6>
+          </div>
+          <div>
+            <h6>Father Name's: </h6>
+            <h6>Exam Center: {{admitcard.exam_centre}}</h6>
+          </div>
+          <div class="d-flex ">
+            <div class="w-50">
+              <h6>DOB: 12 July 2003</h6>
+              <h6>Semester: II</h6>
+            </div>
+            <div class="w-50">
+              <h6>Gender: Male</h6>
+              <h6>Session: 2007</h6>
+            </div>
+          </div>
+        </div>
+        <div class="exam-table">
+          <table class="">
+            <tr>
+              <th>Subject</th>
+              <th>Date</th>
+              <th>Time</th>
+            
+            </tr>
+            <tr>
+              <td>Civil Engineering</td>
+              <td>19-06-2022</td>
+              <td>02:00 PM TO 05:00 PM</td>
+              
+            </tr>
+            <tr>
+              <td>Civil Engineering</td>
+              <td>19-06-2022</td>
+              <td>02:00 PM TO 05:00 PM</td>
+              
+            </tr>
+            <tr>
+              <td>Civil Engineering</td>
+              <td>19-06-2022</td>
+              <td>02:00 PM TO 05:00 PM</td>
+              
+            </tr>
+            <tr>
+              <td>Electronics Engg</td>
+              <td>19-06-2022</td>
+              <td>02:00 PM TO 05:00 PM</td>
+              
+            </tr>
+            <tr>
+              <td>Engineering Dwg</td>
+              <td>19-06-2022</td>
+              <td>02:00 PM TO 05:00 PM</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+
+      <!-- <h4 class="text-center my-2 mb-3">Instructions to the Candidate</h4> -->
+      <!-- <div class="note">
+        {{admitcard.instruction | safe}}
+      </div> -->
+    </div>
+  </div>
+  <footer class="pt-4 mt-5 ">
+
+    <p class="text-center text-muted"> If you have any query please mail us to <a
+        href="mailto:administrator@saiu-edu.in">administrator@saiu-edu.in</a></p>
+  </footer>
+
+  {% endif %}
+</div>
+{% endblock content %}
+
+
+
+
+
+<!-- <div class="card-logo d-flex justify-content-center py-2 mb-1">
+          <img style="height:9vh;" class="img-responsive d-block text-center"
+            src="{% static 'student/image/logo2.png' %}" alt="St. John's University Logo">
+        </div>
+        <div class="admit-card-user">
+          <img src="{{admitcard.image.url}}" alt="" height="200" class="me-4">
+          <div class="ms-3 ">
+            <p> <b> Enrollment No:</b> {{admitcard.enrollment_no}}</p>
+            <p> <b> Title : </b> {{admitcard.title}}</p>
+            <p> <b> Date : </b> {{admitcard.date}}</p>
+            <p> <b> Time :</b> {{admitcard.time}}</p>
+            <p> <b> Registration No :</b> {{admitcard.reg_no}}</p>
+            <p> <b> Name :</b> {{admitcard.name}}</p>
+            <p class="address"> <b> Exam Center :</b> {{admitcard.exam_centre}}</p>
+          </div>
+        </div> -->
+
+
+
+<!-- <div id='mylogo'>
+  <img class='img-fluid mx-auto pt-2 d-block' src="{% static 'student/image/logo2.png' %}" alt="CoolBrand">
+</div>
+<div class="row justify-content-md-auto" id='divone'>
+  <div class="col-2">
+    <div class="text-center">
+      <div class="card-group" width="100%">
+        <div class="card">
+
+          <img class="card-img-top" id='profile_pic' src="{{admitcard.image.url}}" alt="Alumni Image 211*180">
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id='divtwo' class="col-8">
+    <b> Enrollment No :</b> {{admitcard.enrollment_no}} <br>
+    <b> title :</b> {{admitcard.title}} <br>
+    <b> date :</b> {{admitcard.date}} <br>
+    <b> time :</b> {{admitcard.time}} <br>
+    <b> reg_no :</b> {{admitcard.reg_no}} <br>
+    <b> name :</b> {{admitcard.name}} <br>
+    <b> exam_centre :</b> {{admitcard.exam_centre}} <br>
+  </div>
+</div> -->

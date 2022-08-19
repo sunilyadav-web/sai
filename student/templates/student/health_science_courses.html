@@ -1,0 +1,143 @@
+{% extends 'student/base1.html' %}
+{% load static %}
+{% block title %} Health Science Courses {% endblock title %}
+{% block css %}
+<link rel="stylesheet" href="{% static 'student/css/common.css' %}">
+
+<style>
+    * Dropdown Button */
+.dropbtn {
+  background-color: #04AA6D;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #ddd;}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {display: block;}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {background-color: #3e8e41;}
+</style>
+
+{% endblock css %}
+
+{% block image %}
+<img src="{% static "student/image/health_science_courses.jpg" %}" class="img-fluid" alt="...">
+{% endblock image %}
+
+{% block subtitle %}
+HEALTH COURSES
+{% endblock subtitle %}
+
+
+
+{% block para %}
+
+
+
+{% for course in course_desc %}
+  
+    
+
+<div class="container-xl-fluid">
+<div class="row-12">
+<div class="col-12 my-2">
+    <div class="dropdown d-grid gap-2">
+        <button type="button" class="dropbtn btn btn-primary ">{{course.title}}</button>
+        <div class="dropdown-content col-12 ">
+            <div class="container">
+                <div class="row row-2 my-4 border border-secondary ">
+                  <div class="col-12 border border-secondary"><b>{{course.title}}</b></div>
+                  <div class="col-6 border border-secondary">Name</div>
+                  <div class="col-6 border border-secondary">{{course.name}}</div>
+                  <div class="col-6 border border-secondary">Code</div>
+                  <div class="col-6 border border-secondary">{{course.code}}</div>
+                  <div class="col-6 border border-secondary">Pre-requisite </div>
+                  <div class="col-6 border border-secondary">{{course.pre_requisite}}</div>
+                  <div class="col-6 border border-secondary">Duration</div>
+                  <div class="col-6 border border-secondary">{{course.duration}}</div>
+                  <div class="col-6 border border-secondary">Fee</div>
+                  <div class="col-6 border border-secondary">{{course.fee}}</div>
+                  <div class="col-6 border border-secondary">Brief Description</div>
+                  <div class="col-6 border border-secondary">{{course.breif_desc}}</div>
+                </div>
+            </div>
+
+            <div class="container">
+            <div class="row">
+              <div class="col">
+              <a class="btn btn-dark text-primary " href="/apply" role="button">Link</a>
+            </div>
+          </div>
+          </div>
+
+
+        </div>
+    </div>
+</div>
+</div>
+</div>
+
+
+
+{% endfor %}
+
+<!-- {% for course in course_desc %}
+
+{{course.title}} <br>
+{{course.name}} <br>
+{{course.code}} <br>
+{{course.pre_requisite}} <br>
+{{course.duration}} <br>
+{{course.fee}} <br>
+{{course.breif_desc}} <br>
+
+
+{% endfor %} -->
+
+
+
+
+{% endblock para %}
+
+
+
+{% block content %}
+
+
+
+
+
+
+
+
+{% endblock content %}

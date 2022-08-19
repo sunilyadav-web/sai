@@ -1,0 +1,101 @@
+{% extends 'student/base1.html' %}
+{% load static %}
+{% block title %} Contact us {% endblock title %}
+{% block css %}
+<link rel="stylesheet" href="{% static 'student/css/common.css' %}">
+{% endblock css %}
+
+{% block image %}
+<img src="{% static "student/image/contact_us.jpg" %}" class="img-fluid" alt="...">
+{% endblock image %}
+
+{% block subtitle %}
+CONTACT US
+{% endblock subtitle %}
+
+
+
+{% block para %}
+
+<div class="row">
+
+    <div class="col-6 mx-2">
+    <b>St. Aloysius International University </b>
+    <p><br>No. 1507 11th Cross C-Block,<br>
+    Mariyappanapalya,
+    <br> Rajajinagar,<br>
+    Bangalore - 560021.</p>
+        
+        
+        
+        </p>
+    </div>
+
+    <div class="col-6 mx-2">
+    <b>Branch office:</b>
+    <p><br> #53/1 A, Divya Maple, 8th Main, <br>
+    16th Cross, Opp: Reliance fresh, Malleshwaram,
+    Bangalore - 560 055.</p>
+    </div>
+
+    <div class="col-6 mx-2">
+    <b>EMail  :<a href="mailto:administrator@saiu-edu.in">administrator@saiu-edu.in</a></b> 
+    <p><b>Phone  : </b>080-32999559, 080-32999558, 080-32999559
+    </p>
+    </div>
+
+</div>
+
+
+
+
+
+<!-- CONTACT FORM -->
+
+<H2 class="fs-4 text-primary">CONTACT US FORM</H2>
+
+        <form class="row g-3" method="post">
+            {% csrf_token %}
+            <div class="col-12">
+                <label for="inputAddress" class="form-label">Name</label>
+                <input name='name' type="text" class="form-control" id="inputAddress" placeholder="Your Name">
+              </div>
+
+            <div class="col-md-12">
+              <label for="inputEmail4" class="form-label">Email</label>
+              <input name='email' type="email" class="form-control" id="inputEmail4" placeholder="Your Email">
+            </div>
+            
+            
+            <div class="col-md-12">
+                <label for="inputAddress" class="form-label">Subject</label>
+                <input name='subject' type="text" class="form-control" id="inputAddress" placeholder="Subject">
+            </div>
+
+            <div class="col-md-12">
+            <label for="phone" class="form-label">Enter your phone number:</label>
+            <input name='phone' type="tel" class="form-control" id="phone" name="phone" >
+            </div>
+
+              <div class="col-md-12">
+                <label for="exampleFormControlTextarea1" class="form-label">Query</label>
+                <textarea name='query' class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+              </div>
+            
+            <div class="col-12">
+              <button type="submit" class="btn btn-primary">SUBMIT</button>
+            </div>
+          </form>
+
+
+
+
+{% endblock para %}
+
+
+
+{% block content %}
+ 
+
+
+{% endblock content %}
