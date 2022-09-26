@@ -50,7 +50,7 @@ admin.site.register(AdmitCard,AdmitCardAdmin)
 class ProfileAdmin(admin.ModelAdmin):
     # inlines = [Sem1Admin,Sem2Admin,Sem3Admin,Sem4Admin,Sem5Admin,Sem6Admin]
     inlines = [Sem1Admin]
-    list_display = ['enrollment_no','name','father_name','course','specialization','academic_year','year_of_passing']
+    list_display = ['enrollment_no','name','father_name','course','specialization','academic_year','year_of_passing','created_at','updated_at']
 
 admin.site.register(Profile,ProfileAdmin)
 

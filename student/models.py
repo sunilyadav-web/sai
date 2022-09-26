@@ -12,6 +12,8 @@ class Profile(models.Model):
     academic_year = models.CharField(max_length=50)
     year_of_passing = models.IntegerField()
     profile_pic = models.ImageField(upload_to='uploads/student_images/',blank=True)
+    created_at = models.DateTimeField(auto_now_add=True,blank=True,null=True)
+    updated_at = models.DateTimeField(auto_now=True,blank=True,null=True)
     
 
     def __str__(self):
