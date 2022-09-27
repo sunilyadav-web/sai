@@ -202,3 +202,10 @@ class SiteDown(models.Model):
 
     def __str__(self):
         return f"SITEDOWN-{self.display}"
+
+class ExamAndAccountHide(models.Model):
+    display_exam=models.BooleanField(default=False)
+    display_account=models.BooleanField(default=False)
+    
+    def __str__(self):
+        return f"Exam Display - {self.display_exam}  Account Display - {self.display_account}"

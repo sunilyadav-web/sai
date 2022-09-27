@@ -141,9 +141,12 @@
               <a class="nav-link active" href="/result">RESULT</a>
             </li>
             {% endif %}
+            {% if ea.display_exam %}
             <li class="nav-item">
               <a class="nav-link active" href="{% url 'exam:home' %}">EXAM</a>
             </li>
+            {% endif %}
+            {% if ea.display_account %}
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle active" href="#" id="account-dropdown" role="button"
                 data-bs-toggle="dropdown" aria-expanded="false">
@@ -158,6 +161,7 @@
                 {% endif %}
               </ul>
             </li>
+           {% endif %}
           </ul>
         </div>
       </div>
