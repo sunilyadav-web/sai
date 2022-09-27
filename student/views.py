@@ -9,6 +9,8 @@ from django.http import HttpResponse
 from django.template.loader import get_template
 from xhtml2pdf import pisa
 from django.db.models import Q
+from .helper import *
+
 
 def home(request):
     x2=ResultStyleHideUnHide.objects.get(id=1)
@@ -262,9 +264,10 @@ def contact_us(request):
         contact.phone = phone
         contact.query = query 
         contact.save()
-
+        res=contactusMail(name,email,phone,subject,query)
+        print(res)
+        
         return HttpResponse("THANKS FOR CONTACTING US <br> <p><a href='/'> HOME </a> </p>")
-
     return render(request, 'student/contact_us.html',{'x2':x2})
 
 def apply(request):
@@ -285,7 +288,8 @@ def apply(request):
         apply.query = query
         apply.applying_for = course
         apply.save()
-
+        res=applyMail(name,email,phone,subject,course,query)
+        print(res)
         return HttpResponse("THANKS FOR APPLYING FOR COURSES <br> <p><a href='/'> HOME </a> </p>")
 
     return render(request, 'student/apply.html',{'x2':x2})
