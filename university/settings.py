@@ -29,11 +29,10 @@ MESSAGE_TAGS = {
 with open(os.path.join(BASE_DIR,'secret_key.txt')) as f:
     SECRET_KEY = f.read().strip()
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
-# DEBUG = True
+# DEBUG = False
+DEBUG = True
 
-# ALLOWED_HOSTS = []
-# ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = []
 CSRF_TRUSTED_ORIGINS = ['https://saiu-edu.in', 'https://www.saiu-edu.in']
 
 
@@ -159,15 +158,15 @@ STATICFILES_DIRS = [
     BASE_DIR / "static",
 ]
 
-STATIC_ROOT= os.path.join(BASE_DIR,'static/')
+# STATIC_ROOT= os.path.join(BASE_DIR,'static/')
 
-SESSION_COOKIE_SECURE = True
-CSRF_COOKIE_SECURE = True
-SECURE_SSL_REDIRECT = True
+# SESSION_COOKIE_SECURE = True
+# CSRF_COOKIE_SECURE = True
+# SECURE_SSL_REDIRECT = True
 
-SECURE_HSTS_SECONDS = 31536000
-SECURE_HSTS_PRELOAD = True
-SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+# SECURE_HSTS_SECONDS = 31536000
+# SECURE_HSTS_PRELOAD = True
+# SECURE_HSTS_INCLUDE_SUBDOMAINS = True
 
 
 # Adding media root directory and URL

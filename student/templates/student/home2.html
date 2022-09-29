@@ -8,6 +8,7 @@
 
 {% endblock css %}
 
+
 {% block content %}
 
 
@@ -36,78 +37,66 @@
 
 
 <div class="container mt-3">
-  <div class="row" id="iconF" style="display: flex;overflow-y: hidden; overflow-x: hidden;">
-    <div class="col-xl-2 ">
-      <div class="bg-transparent d-flex justify-content-center align-items-center course-left"
-        style="width: 150px;height: 150px;">
-        <a href="/courses"
-          class="hover-parent rounded-circle bg-white w-75 h-75 d-flex justify-content-center align-items-center position-relative overflow-hidden">
-          <img src="{% static 'student/image/technology.png' %}" class="w-50 h-50">
-          <div class="hover-element">
-            <div>Technical Course</div>
-          </div>
-        </a>
-      </div>
+  <div class="align-items-center justify-content-evenly d-flex overflow-auto" id="iconF">
+    <div class="bg-transparent d-flex justify-content-center align-items-center course-left course-box"
+      >
+      <a href="/courses"
+        class="hover-parent rounded-circle bg-white w-75 h-75 d-flex justify-content-center align-items-center position-relative overflow-hidden">
+        <img src="{% static 'student/image/technology.png' %}" class="w-50 h-50">
+        <div class="hover-element">
+          <div>Technical Course</div>
+        </div>
+      </a>
     </div>
-    <div class="col-xl-2 ">
-      <div class="bg-transparent d-flex justify-content-center align-items-center course-left1"
-        style="width: 150px;height: 150px;">
-        <a href="/health_science_courses"
-          class="hover-parent rounded-circle bg-white w-75 h-75 d-flex justify-content-center align-items-center position-relative overflow-hidden">
-          <img src="{% static 'student/image/management.png' %}" class="w-50 h-50">
-          <div class="hover-element">
-            <div>Management Course</div>
-          </div>
-        </a>
-      </div>
+    <div class="bg-transparent d-flex justify-content-center align-items-center course-left1 course-box"
+      >
+      <a href="/health_science_courses"
+        class="hover-parent rounded-circle bg-white w-75 h-75 d-flex justify-content-center align-items-center position-relative overflow-hidden">
+        <img src="{% static 'student/image/management.png' %}" class="w-50 h-50">
+        <div class="hover-element">
+          <div>Management Course</div>
+        </div>
+      </a>
     </div>
-    <div class="col-xl-2 ">
-      <div class="bg-transparent d-flex justify-content-center align-items-center course-bottom"
-        style="width: 150px;height: 150px;">
-        <a href="/health_science_courses"
-          class="hover-parent rounded-circle bg-white w-75 h-75 d-flex justify-content-center align-items-center position-relative overflow-hidden">
-          <img src="{% static 'student/image/health.png' %}" class="w-50 h-50">
-          <div class="hover-element">
-            <div>Health Science</div>
-          </div>
-        </a>
-      </div>
+    <div class="bg-transparent d-flex justify-content-center align-items-center course-bottom course-box"
+      >
+      <a href="/health_science_courses"
+        class="hover-parent rounded-circle bg-white w-75 h-75 d-flex justify-content-center align-items-center position-relative overflow-hidden">
+        <img src="{% static 'student/image/health.png' %}" class="w-50 h-50">
+        <div class="hover-element">
+          <div>Health Science</div>
+        </div>
+      </a>
     </div>
-    <div class="col-xl-2 ">
-      <div class="bg-transparent d-flex justify-content-center align-items-center course-bottom"
-        style="width: 150px;height: 150px;">
-        <a href="/certificate"
-          class="hover-parent rounded-circle bg-white w-75 h-75 d-flex justify-content-center align-items-center position-relative overflow-hidden">
-          <img src="{% static 'student/image/certification.png' %}" class="w-50 h-50">
-          <div class="hover-element">
-            <div>Certified Courses</div>
-          </div>
-        </a>
-      </div>
+    <div class="bg-transparent d-flex justify-content-center align-items-center course-bottom course-box"
+      >
+      <a href="/certificate"
+        class="hover-parent rounded-circle bg-white w-75 h-75 d-flex justify-content-center align-items-center position-relative overflow-hidden">
+        <img src="{% static 'student/image/certification.png' %}" class="w-50 h-50">
+        <div class="hover-element">
+          <div>Certified Courses</div>
+        </div>
+      </a>
     </div>
-    <div class="col-xl-2 ">
-      <div class="bg-transparent d-flex justify-content-center align-items-center course-right"
-        style="width: 150px;height: 150px;">
-        <a href="/courses"
-          class="hover-parent rounded-circle bg-white w-75 h-75 d-flex justify-content-center align-items-center position-relative overflow-hidden">
-          <img src="{% static 'student/image/pg.png' %}" class="w-50 h-50">
-          <div class="hover-element">
-            <div>Post Graduation</div>
-          </div>
-        </a>
-      </div>
+    <div class="bg-transparent d-flex justify-content-center align-items-center course-right course-box"
+      >
+      <a href="/courses"
+        class="hover-parent rounded-circle bg-white w-75 h-75 d-flex justify-content-center align-items-center position-relative overflow-hidden">
+        <img src="{% static 'student/image/pg.png' %}" class="w-50 h-50">
+        <div class="hover-element">
+          <div>Post Graduation</div>
+        </div>
+      </a>
     </div>
-    <div class="col-xl-2 course-right">
-      <div class="bg-transparent d-flex justify-content-center align-items-center course-right1"
-        style="width: 150px;height: 150px;">
-        <a href="/courses"
-          class="hover-parent rounded-circle bg-white w-75 h-75 d-flex justify-content-center align-items-center position-relative overflow-hidden">
-          <img src="{% static 'student/image/research.png' %}" class="w-50 h-50">
-          <div class="hover-element">
-            <div>Research Courses</div>
-          </div>
-        </a>
-      </div>
+    <div class="bg-transparent d-flex justify-content-center align-items-center course-right1 course-right course-box"
+      >
+      <a href="/courses"
+        class="hover-parent rounded-circle bg-white w-75 h-75 d-flex justify-content-center align-items-center position-relative overflow-hidden">
+        <img src="{% static 'student/image/research.png' %}" class="w-50 h-50">
+        <div class="hover-element">
+          <div>Research Courses</div>
+        </div>
+      </a>
     </div>
   </div>
 </div>
@@ -155,9 +144,8 @@
 
 <div class="container my-2">
   <div class="row">
-    <div class="col-6 greeting-left">
-      <h5>WELCOME TO <br>
-        ST. ALOYSIUS INTERNATIONAL UNIVERSITY !</h5>
+    <div class="col-sm-7 col-md-8 greeting-left col-12">
+      <h5>WELCOME TO ST. ALOYSIUS INTERNATIONAL UNIVERSITY !</h5>
       <img src="{% static 'student/image/img1.jpg' %}" class="card-img-top" alt="...">
       <h5>We are among the leading research and teaching institutions of the world!</h5>
       <p>
@@ -170,13 +158,12 @@
       <p class="readmore"><a href="/about" title="Read more">Read more</a></p>
     </div>
 
-    <div class="col-6 greeting-right">
-      <div class="row">
-        <div class="col-6">
+    <div class="col-sm-4 col-12 greeting-right">
+        <div class="">
           <h5>E-BOOKS</h5>
           <img src="{% static 'student/image/education.jpg' %}" class="card-img-top" alt="...">
         </div>
-        <div class=" col-6">
+        <div class="my-3">
           <h6>NEWS AND EVENTS</h6>
           <div class="card mb-3" style="max-width: 540px;">
             <div class="row g-0">
@@ -187,7 +174,6 @@
                 <p class="card-text" id="changing">Comming Soon</p>
               </div>
             </div>
-          </div>
         </div>
       </div>
       {% if x1.display != False %}
@@ -225,15 +211,15 @@
   //sr.reveal('#head',{origin:'bottom'}) 
   //sr.reveal('#mylogo',{ origin: 'top' })
   //sr.reveal('.navbar',{ origin: 'bottom',delay:450 })
-  sr.reveal('.carousel', {origin:'bottom', delay: 500 })
-  sr.reveal('.course-left', { delay: 600, origin: 'left', duration:2000 })
-  sr.reveal('.course-left1', { delay: 650, origin: 'left', duration:2000 })
-  sr.reveal('.course-bottom', { delay: 750, origin: 'bottom' , duration:2000, distance:'100px'})
-  sr.reveal('.course-right', { delay: 850, origin: 'right' , duration:2000})
-  sr.reveal('.course-right1', { delay: 900, origin: 'right', duration:2000 })
-  sr.reveal('.blog-card', { delay: 900, origin: 'bottom', duration:2000 })
-  sr.reveal('.greeting-left', { delay: 900, origin: 'left', duration:2500 })
-  sr.reveal('.greeting-right', { delay: 900, origin: 'right', duration:2500 })
+  sr.reveal('.carousel', { origin: 'bottom', delay: 500 })
+  sr.reveal('.course-left', { delay: 600, origin: 'left', duration: 2000 })
+  sr.reveal('.course-left1', { delay: 650, origin: 'left', duration: 2000 })
+  sr.reveal('.course-bottom', { delay: 750, origin: 'bottom', duration: 2000, distance: '100px' })
+  sr.reveal('.course-right', { delay: 850, origin: 'right', duration: 2000 })
+  sr.reveal('.course-right1', { delay: 900, origin: 'right', duration: 2000 })
+  sr.reveal('.blog-card', { delay: 900, origin: 'bottom', duration: 2000 })
+  sr.reveal('.greeting-left', { delay: 900, origin: 'left', duration: 2500 })
+  sr.reveal('.greeting-right', { delay: 900, origin: 'right', duration: 2500 })
 
 
 </script>
